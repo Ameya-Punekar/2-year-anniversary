@@ -420,11 +420,11 @@ button {
 
 /* Cards */
 .card {
-  flex: 0 0 calc(16.66% - 6.66px); /* 6 cards per view for vertical */
-  min-width: 140px;
-  aspect-ratio: 2/3; /* Changed to movie poster format for better phone photo display */
+  flex: 0 0 calc(20% - 6.4px); /* 5 cards per view */
+  min-width: 200px;
+  aspect-ratio: 16/9;
   position: relative;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s;
   cursor: pointer;
   z-index: 1;

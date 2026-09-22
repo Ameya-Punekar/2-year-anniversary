@@ -109,31 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Rows ---
     function renderRows() {
         rowsContainer.innerHTML = '';
-        
-        // Define Netflix-like categories
-        const categories = [
-            { title: "Our Journey (Chronological)", series: seriesData },
-            { title: "Milestones & Joy", series: seriesData.filter(s => s.genre.includes('Milestones') || s.genre.includes('Joy')) },
-            { title: "Adventures & Dreams", series: seriesData.filter(s => s.genre.includes('Adventure')) },
-            { title: "Where It All Began", series: seriesData.filter(s => s.genre.includes('Origins') || s.genre.includes('Before')) },
-            { title: "Through Thick and Thin", series: seriesData.filter(s => s.genre.includes('Resilience') || s.genre.includes('Drama')) }
-        ];
-
-        categories.forEach((cat, catIdx) => {
-            if (cat.series.length === 0) return;
-
+        seriesData.forEach((series, index) => {
             const rowWrapper = document.createElement('div');
             rowWrapper.className = 'row-container';
             rowWrapper.innerHTML = `
-                <h2 class="row-title">${cat.title}</h2>
+                <h2 class="row-title">Chapter ${index + 1}: ${series.title}</h2>
                 <div class="row-slider-wrapper">
                     <div class="slider-arrow arrow-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
-                    <div class="row-slider" id="slider-${catIdx}">
-                        ${cat.series.map((s) => `
-                            <div class="card" data-series-id="${s.id}">
-                                <img src="${s.coverSrc || s.media[0].src}" alt="${s.title}" loading="lazy">
+                    <div class="row-slider" id="slider-${series.id}">
+                        ${series.media.map((m, i) => `
+                            <div class="card" data-idx="${i}">
+                                <img src="${m.src}" alt="Episode ${i+1}" loading="lazy">
                                 <div class="card-info">
-                                    <span class="card-title">${s.title}</span>
+                                    <span class="card-title">Episode ${i+1}</span>
                                     <div class="play-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
                                 </div>
                             </div>
@@ -156,9 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cards = rowWrapper.querySelectorAll('.card');
             cards.forEach(card => {
                 card.onclick = () => {
-                    const sId = card.getAttribute('data-series-id');
-                    const selectedSeries = seriesData.find(s => s.id === sId);
-                    openModal(selectedSeries);
+                    openModal(series);
                 };
             });
         });
