@@ -277,6 +277,83 @@ button {
   inset: 0;
   background-size: cover;
   background-position: center top;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 10s ease-out;
+  transform: scale(1);
+}
+
+.carousel-bg.active {
+  opacity: 1;
+  transform: scale(1.05); /* Subtle Ken Burns on the background */
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%),
+              linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  max-width: 600px;
+  z-index: 10;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-nav:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev { left: 30px; }
+.carousel-nav.next { right: 30px; }
+
+.btn-floating {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-floating:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
 
 /* Navigation arrows */
 .slider-arrow {
