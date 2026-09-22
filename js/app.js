@@ -185,6 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('no-scroll');
         renderGalleryMedia();
         startAutoPlay();
+        const audio = document.getElementById('bg-audio');
+        if (audio) {
+            audio.play().catch(e => console.warn('Audio play prevented by browser:', e));
+        }
     }
 
     function openGallery(series, idx) {
@@ -195,6 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('no-scroll');
         renderGalleryMedia();
         startAutoPlay();
+        
+        const audio = document.getElementById('bg-audio');
+        if (audio) {
+            audio.play().catch(e => console.warn('Audio play prevented by browser:', e));
+        }
     }
 
     function renderGalleryMedia() {
@@ -266,12 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeGallery();
         creditsScreen.classList.remove('hidden');
         
-        const audio = document.getElementById('credits-audio');
-        if (audio) {
-            audio.currentTime = 0;
-            audio.play().catch(e => console.warn('Audio play prevented by browser:', e));
-        }
-        
         // Restart animation
         creditsContent.style.animation = 'none';
         creditsContent.offsetHeight; /* trigger reflow */
@@ -279,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             creditsScreen.classList.add('hidden');
+            const audio = document.getElementById('bg-audio');
             if (audio) audio.pause();
         }, 22000); // Wait for 20s animation + 2s fade
     }
@@ -311,9 +315,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeGallery() {
         galleryOverlay.classList.remove('active');
         galleryVid.pause();
+        const bgVid = document.getElementById('gallery-bg-vid');
+        if (bgVid) bgVid.pause();
         stopAutoPlay();
         if (!modalOverlay.classList.contains('active')) {
             document.body.classList.remove('no-scroll');
+        }
+        
+        const audio = document.getElementById('bg-audio');
+        if (audio && creditsScreen.classList.contains('hidden')) {
+            audio.pause();
         }
     }
 
