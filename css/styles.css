@@ -628,23 +628,26 @@ button {
 .episode-number {
   font-size: 1.5rem;
   color: #d2d2d2;
-  width: 40px;
+  width: 50px;
   text-align: center;
 }
 
 .episode-thumb-container {
   position: relative;
-  width: 130px;
-  height: 73px;
+  width: 220px;
+  aspect-ratio: 16/9;
   border-radius: 4px;
   overflow: hidden;
-  margin-right: 15px;
+  margin-right: 25px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .episode-thumb-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .episode-play-icon {
@@ -775,10 +778,23 @@ button {
 }
 
 /* Media styling & Ken Burns */
+.gallery-content::before, .gallery-content::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  background: black;
+  z-index: 1000; /* Cinematic letterbox */
+}
+.gallery-content::before { top: 0; }
+.gallery-content::after { bottom: 0; }
+
 .gallery-content img, .gallery-content video {
-  max-width: 100%;
-  max-height: 100vh;
-  object-fit: contain;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center 20%; /* keep faces visible */
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   position: absolute;
