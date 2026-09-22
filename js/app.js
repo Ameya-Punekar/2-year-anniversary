@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize
     function init() {
-        seriesData.forEach(series => {
+        seriesData.forEach((series, index) => {
+            // Inject Chapter Title Card
+            globalTimeline.push({
+                type: 'chapter',
+                chapterNumber: `Chapter ${index + 1}`,
+                title: series.title
+            });
             series.media.forEach(m => {
                 globalTimeline.push(m);
             });
@@ -217,8 +223,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         galleryImg.classList.remove('active');
         galleryVid.classList.remove('active');
+        const titleCard = document.getElementById('gallery-title-card');
+        if (titleCard) titleCard.classList.remove('active');
 
-        if (m.type === 'video') {
+        if (m.type === 'chapter') {
+            galleryImg.style.display = 'none';
+            galleryVid.style.display = 'none';
+            galleryVid.pause();
+            
+            document.getElementById('gallery-chapter-number').textContent = m.chapterNumber;
+            document.getElementById('gallery-chapter-title').textContent = m.title;
+            if (titleCard) titleCard.classList.add('active');
+        } else if (m.type === 'video') {
             galleryImg.style.display = 'none';
             galleryVid.style.display = 'block';
             galleryVid.src = m.src;
@@ -229,6 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryVid.style.display = 'none';
             galleryImg.style.display = 'block';
             galleryImg.src = m.src;
+            // Force reflow to restart animation
+            void galleryImg.offsetWidth;
             galleryImg.classList.add('active');
         }
 
