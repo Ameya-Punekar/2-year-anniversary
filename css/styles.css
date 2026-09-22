@@ -193,8 +193,8 @@ button {
   background: #141414;
   z-index: 2000;
   overflow-y: auto;
-  padding: 40px 20px;
-  display: flex;
+  padding: 20px;
+  display: block; /* Removed flex to fix unscrollable top bug */
   transition: opacity 1s, visibility 1s;
 }
 
@@ -204,7 +204,7 @@ button {
 }
 
 .letter-container {
-  margin: auto;
+  margin: 40px auto; /* Centers horizontally, respects vertical scroll */
   width: 100%;
   max-width: 800px;
   padding: 40px;
