@@ -196,19 +196,26 @@ button {
   background-size: cover;
   background-position: center 20%;
   background-repeat: no-repeat;
+  animation: subtleZoom 20s ease-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  0% { background-size: 100% auto; }
+  100% { background-size: 110% auto; }
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 100%),
+              radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.6) 100%);
 }
 
 .hero-bottom-fade {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 150px;
+  height: 200px;
   background: linear-gradient(to bottom, transparent, var(--netflix-black));
 }
 
@@ -242,10 +249,11 @@ button {
 
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1;
+  font-size: clamp(4rem, 8vw, 6.5rem);
+  line-height: 0.9;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+  letter-spacing: 2px;
 }
 
 .hero-meta {
@@ -274,15 +282,17 @@ button {
 }
 
 .hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
-  margin-bottom: 25px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+  margin-bottom: 30px;
   color: #fff;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  max-width: 500px;
+  font-weight: 400;
 }
 
 .hero-buttons {
@@ -335,11 +345,19 @@ button {
 }
 
 .row-title {
-  font-size: 1.4vw;
+  font-size: 1.5vw;
   color: #e5e5e5;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 4% 0.5em 4%;
   display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  transition: color 0.3s;
+}
+
+.row-title:hover {
+  color: #fff;
 }
 
 .row-slider-wrapper {
@@ -402,22 +420,25 @@ button {
 
 /* Cards */
 .card {
-  flex: 0 0 calc(20% - 6.4px); /* 5 cards per view */
-  min-width: 200px;
-  aspect-ratio: 16/9;
+  flex: 0 0 calc(16.66% - 6.66px); /* 6 cards per view for vertical */
+  min-width: 140px;
+  aspect-ratio: 2/3; /* Changed to movie poster format for better phone photo display */
   position: relative;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s;
   cursor: pointer;
   z-index: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  background: #222;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
   display: block;
+  transition: opacity 0.3s;
 }
 
 .card-info {
