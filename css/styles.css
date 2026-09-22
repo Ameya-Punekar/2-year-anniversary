@@ -189,12 +189,16 @@ button {
 /* Profile Screen */
 #profile-screen {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: #141414;
   z-index: 2000;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 20px;
-  display: block; /* Removed flex to fix unscrollable top bug */
+  display: block;
   transition: opacity 1s, visibility 1s;
 }
 
@@ -985,7 +989,7 @@ button {
   .splash-note { font-size: 0.9rem; padding: 0 15px; }
 
   /* Letter */
-  .letter-container { padding: 20px; width: 90%; margin: 0 auto; }
+  .letter-container { padding: 20px; width: 90%; margin: 20px auto 60px auto; }
   .letter-title { font-size: 1.5rem !important; margin-bottom: 15px !important; }
   .letter-text { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px !important; }
   .letter-text + div h2 { font-size: 2rem !important; }
