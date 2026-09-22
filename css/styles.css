@@ -982,44 +982,69 @@ button {
   100% { transform: translateY(-250%); }
 }
 
-@media (max-width: 768px) {
-  /* Splash */
-  .splash-logo { font-size: clamp(3rem, 15vw, 8rem); letter-spacing: 2px; }
-  .splash-tagline { font-size: 1rem; letter-spacing: 2px; }
+/* -------------------------------------
+   8. DYNAMIC RESPONSIVE & ORIENTATION
+------------------------------------- */
+
+/* Fluid Typography & Base Adjustments (Applies everywhere) */
+.splash-logo { font-size: clamp(3rem, 15vw, 8rem); letter-spacing: 2px; }
+.hero-title { font-size: clamp(2rem, 8vw, 5rem); line-height: 1.1; }
+.letter-title { font-size: clamp(1.8rem, 6vw, 3rem) !important; margin-bottom: 15px !important; }
+.gallery-title-card h1 { font-size: clamp(2rem, 10vw, 4rem); }
+.credits-content h1 { font-size: clamp(2rem, 8vw, 4rem); }
+.credits-content h1.credits-end { font-size: clamp(2.2rem, 10vw, 4.5rem); }
+
+/* Dynamic Arrows */
+.carousel-nav svg, .gallery-nav svg {
+  width: clamp(24px, 6vw, 48px);
+  height: clamp(24px, 6vw, 48px);
+}
+
+/* Portrait Orientation (Phones held vertically) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .splash-tagline { font-size: 1rem; }
   .splash-note { font-size: 0.9rem; padding: 0 15px; }
 
-  /* Letter */
-  .letter-container { padding: 20px; width: 90%; margin: 20px auto 60px auto; }
-  .letter-title { font-size: 1.5rem !important; margin-bottom: 15px !important; }
-  .letter-text { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px !important; }
+  .letter-container { padding: 25px 20px; width: 92%; margin: 20px auto 80px auto; }
+  .letter-text { font-size: 1rem; line-height: 1.6; margin-bottom: 15px !important; }
   .letter-text + div h2 { font-size: 2rem !important; }
 
-  /* Carousel */
-  .hero-title { font-size: 2.5rem; line-height: 1.1; }
-  .hero-desc { font-size: 0.9rem; max-width: 100%; }
-  .carousel-content { padding-left: 5%; bottom: 15%; width: 90%; }
-  .btn-primary, .btn-floating { font-size: 1rem; padding: 10px 20px; }
+  .carousel-bg { background-position: center center !important; } /* Better crop for portrait */
+  .hero-desc { font-size: 0.95rem; max-width: 100%; }
+  .carousel-content { padding-left: 5%; bottom: 12%; width: 90%; }
+  .btn-primary, .btn-floating { font-size: 1rem; padding: 12px 20px; }
   .carousel-nav { width: 40px; }
 
-  /* Modal */
-  .modal-content { width: 95%; max-height: 90vh; }
+  .modal-content { width: 95%; max-height: 85vh; }
   .modal-hero { height: 200px; }
   .modal-hero-content { padding: 20px; }
-  .modal-title { font-size: 1.5rem; }
   .modal-desc-container { flex-direction: column; gap: 15px; }
-  .episode-thumb-container { width: 120px; }
+  .episode-thumb-container { width: 110px; }
 
-  /* Gallery */
-  .gallery-title-card h1 { font-size: clamp(2rem, 10vw, 4rem); }
-  .gallery-title-card h3 { font-size: 1rem; }
-  .gallery-close { top: 20px; right: 20px; font-size: 1.5rem; }
-  .gallery-nav { width: 15%; }
-  .gallery-nav svg { width: 32px; height: 32px; }
-  .gallery-controls { padding: 15px 20px; flex-direction: column; gap: 10px; }
+  .gallery-close { top: 15px; right: 15px; font-size: 1.8rem; z-index: 9999; }
+  .gallery-nav { width: 15%; z-index: 5000; }
+  .gallery-controls { padding: 15px 20px; flex-direction: column; gap: 10px; bottom: 20px; }
   .gallery-counter { font-size: 1rem; }
+}
 
-  /* Credits */
-  .credits-content h2 { font-size: 1rem; margin-top: 30px; }
-  .credits-content h1 { font-size: 2rem; }
-  .credits-content h1.credits-end { font-size: 2.5rem; margin-top: 50px; }
+/* Landscape Orientation (Phones held horizontally & Tablets) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .splash-logo { font-size: clamp(2rem, 8vw, 4rem); }
+  .splash-tagline { font-size: 0.8rem; }
+  .splash-note { font-size: 0.85rem; margin: 15px auto; }
+  
+  .letter-container { margin: 20px auto; padding: 20px; width: 85%; }
+  .letter-text { font-size: 0.9rem; margin-bottom: 10px !important; }
+  
+  .hero-title { font-size: clamp(1.5rem, 5vw, 3rem); }
+  .carousel-content { bottom: 10%; width: 70%; padding-left: 3%; }
+  .hero-desc { display: none; } /* Hide description to save space on tiny landscape screens */
+  
+  .modal-content { max-height: 90vh; }
+  .modal-hero { height: 120px; }
+  .episode-item { padding: 10px 0; }
+  .episode-thumb-container { width: 100px; }
+  
+  .gallery-close { top: 10px; right: 20px; font-size: 1.5rem; }
+  .gallery-controls { padding: 10px 20px; bottom: 0; }
 }
