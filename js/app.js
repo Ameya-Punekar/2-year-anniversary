@@ -9,19 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const browsePage = document.getElementById('browse-page');
     const navbar = document.getElementById('navbar');
 
-    // Hero Elements
-    const heroSection = document.getElementById('hero-section');
-    const heroTitle = document.getElementById('hero-title');
-    const heroDesc = document.getElementById('hero-desc');
-    const heroMatch = document.getElementById('hero-match');
-    const heroYear = document.getElementById('hero-year');
-    const heroSeasons = document.getElementById('hero-seasons');
-    const heroPlayBtn = document.getElementById('hero-play');
-    const heroPlayMovieBtn = document.getElementById('hero-play-movie');
-    const heroInfoBtn = document.getElementById('hero-info');
-
-    // Rows
-    const rowsContainer = document.getElementById('rows-container');
+    // Carousel Elements
+    const carouselPage = document.getElementById('carousel-page');
+    const carouselBackgrounds = document.getElementById('carousel-backgrounds');
+    const carouselChapterNum = document.getElementById('carousel-chapter-num');
+    const carouselTitle = document.getElementById('carousel-title');
+    const carouselDesc = document.getElementById('carousel-desc');
+    const btnEnterChapter = document.getElementById('btn-enter-chapter');
+    const btnGlobalMovie = document.getElementById('btn-global-movie');
+    const btnPrev = document.getElementById('carousel-prev');
+    const btnNext = document.getElementById('carousel-next');
 
     // Modal
     const modalOverlay = document.getElementById('detail-modal');
@@ -56,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoPlayInterval = null;
     let globalTimeline = [];
     let isGlobalMovie = false;
+    let currentCarouselIndex = 0;
 
     // Initialize
     function init() {
@@ -69,10 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
             series.media.forEach(m => {
                 globalTimeline.push(m);
             });
+            
+            // Create Carousel Background
+            const bg = document.createElement('div');
+            bg.className = 'carousel-bg';
+            bg.style.backgroundImage = `url('${series.coverSrc || series.media[0].src}')`;
+            carouselBackgrounds.appendChild(bg);
         });
         
-        setHeroSeries(seriesData[seriesData.length - 1]); // Default hero to latest
-        renderRows();
+        updateCarousel();
         attachEvents();
     }
 
@@ -91,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             profileScreen.classList.add('hidden');
             setTimeout(() => {
                 profileScreen.style.display = 'none';
-                browsePage.style.display = 'block';
+                carouselPage.style.display = 'block';
                 document.body.classList.remove('no-scroll');
             }, 1000);
         });
@@ -103,66 +106,35 @@ document.addEventListener('DOMContentLoaded', () => {
         else navbar.classList.remove('scrolled');
     });
 
-    // --- Hero ---
-    function setHeroSeries(series) {
-        if (!series) return;
-        heroSection.style.backgroundImage = `url('${series.coverSrc || series.media[0].src}')`;
-        heroTitle.textContent = series.title;
-        heroDesc.textContent = series.description;
-        heroMatch.textContent = series.match;
-        heroYear.textContent = series.year;
-        heroSeasons.textContent = `${series.media.length} Episodes`;
-
-        heroPlayBtn.onclick = () => openGallery(series, 0);
-        heroPlayMovieBtn.onclick = () => openGlobalMovie();
-        heroInfoBtn.onclick = () => openModal(series);
-    }
-
-    // --- Rows ---
-    function renderRows() {
-        rowsContainer.innerHTML = '';
-        seriesData.forEach((series, index) => {
-            const rowWrapper = document.createElement('div');
-            rowWrapper.className = 'row-container';
-            rowWrapper.innerHTML = `
-                <h2 class="row-title">Chapter ${index + 1}: ${series.title}</h2>
-                <div class="row-slider-wrapper">
-                    <div class="slider-arrow arrow-left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
-                    <div class="row-slider" id="slider-${series.id}">
-                        ${series.media.map((m, i) => `
-                            <div class="card" data-idx="${i}">
-                                ${m.type === 'video' 
-                                    ? `<video src="${m.src}" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>` 
-                                    : `<img src="${m.src}" alt="Episode ${i+1}" loading="lazy">`}
-                                <div class="card-info">
-                                    <span class="card-title">Episode ${i+1}</span>
-                                    <div class="play-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div class="slider-arrow arrow-right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
-                </div>
-            `;
-            rowsContainer.appendChild(rowWrapper);
-
-            // Slider Nav
-            const slider = rowWrapper.querySelector('.row-slider');
-            const leftBtn = rowWrapper.querySelector('.arrow-left');
-            const rightBtn = rowWrapper.querySelector('.arrow-right');
-
-            leftBtn.onclick = () => slider.scrollBy({ left: -slider.clientWidth * 0.8, behavior: 'smooth' });
-            rightBtn.onclick = () => slider.scrollBy({ left: slider.clientWidth * 0.8, behavior: 'smooth' });
-
-            // Card clicks
-            const cards = rowWrapper.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.onclick = () => {
-                    openModal(series);
-                };
-            });
+    // --- Carousel Logic ---
+    function updateCarousel() {
+        const bgs = carouselBackgrounds.querySelectorAll('.carousel-bg');
+        bgs.forEach((bg, i) => {
+            if (i === currentCarouselIndex) {
+                bg.classList.add('active');
+            } else {
+                bg.classList.remove('active');
+            }
         });
+
+        const series = seriesData[currentCarouselIndex];
+        carouselChapterNum.textContent = `CHAPTER ${currentCarouselIndex + 1}`;
+        carouselTitle.textContent = series.title;
+        carouselDesc.textContent = series.description;
+        
+        btnEnterChapter.onclick = () => openModal(series);
+        btnGlobalMovie.onclick = () => openGlobalMovie();
     }
+
+    btnNext.addEventListener('click', () => {
+        currentCarouselIndex = (currentCarouselIndex + 1) % seriesData.length;
+        updateCarousel();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        currentCarouselIndex = (currentCarouselIndex - 1 + seriesData.length) % seriesData.length;
+        updateCarousel();
+    });
 
     // --- Modal ---
     function openModal(series) {
