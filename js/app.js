@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         splashScreen.classList.add('hidden');
         setTimeout(() => {
             splashScreen.style.display = 'none';
-            profileScreen.style.display = 'flex';
+            profileScreen.style.display = 'block';
         }, 1000);
     });
 
