@@ -186,6 +186,75 @@ button {
   font-size: 1rem;
 }
 
+/* Profile Screen */
+#profile-screen {
+  position: fixed;
+  inset: 0;
+  background: #141414;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s, visibility 1s;
+}
+
+#profile-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.profile-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  color: #fff;
+  margin-bottom: 2em;
+}
+
+.profiles-container {
+  display: flex;
+  gap: 3vw;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-card:hover .profile-name {
+  color: #fff;
+}
+
+.profile-card:hover .profile-avatar {
+  border-color: #fff;
+}
+
+.profile-avatar {
+  width: clamp(100px, 12vw, 200px);
+  height: clamp(100px, 12vw, 200px);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.avatar-1 { background-color: #e50914; }
+.avatar-2 { background-color: #0071eb; }
+
+.profile-name {
+  margin-top: 15px;
+  color: #808080;
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
 /* -------------------------------------
    3. HERO BANNER
 ------------------------------------- */
@@ -432,7 +501,7 @@ button {
   background: #222;
 }
 
-.card img {
+.card img, .card video {
   width: 100%;
   height: 100%;
   object-fit: cover;

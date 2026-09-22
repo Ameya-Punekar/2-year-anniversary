@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Elements
     const splashScreen = document.getElementById('splash-screen');
+    const profileScreen = document.getElementById('profile-screen');
     const btnEnter = document.getElementById('btn-enter');
     const browsePage = document.getElementById('browse-page');
     const navbar = document.getElementById('navbar');
@@ -75,14 +76,25 @@ document.addEventListener('DOMContentLoaded', () => {
         attachEvents();
     }
 
-    // --- Splash ---
+    // --- Splash & Profiles ---
     btnEnter.addEventListener('click', () => {
         splashScreen.classList.add('hidden');
         setTimeout(() => {
             splashScreen.style.display = 'none';
-            browsePage.style.display = 'block';
-            document.body.classList.remove('no-scroll');
+            profileScreen.style.display = 'flex';
         }, 1000);
+    });
+
+    const profiles = document.querySelectorAll('.profile-card');
+    profiles.forEach(p => {
+        p.addEventListener('click', () => {
+            profileScreen.classList.add('hidden');
+            setTimeout(() => {
+                profileScreen.style.display = 'none';
+                browsePage.style.display = 'block';
+                document.body.classList.remove('no-scroll');
+            }, 1000);
+        });
     });
 
     // --- Navbar ---
@@ -119,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="row-slider" id="slider-${series.id}">
                         ${series.media.map((m, i) => `
                             <div class="card" data-idx="${i}">
-                                <img src="${m.src}" alt="Episode ${i+1}" loading="lazy">
+                                ${m.type === 'video' 
+                                    ? `<video src="${m.src}" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>` 
+                                    : `<img src="${m.src}" alt="Episode ${i+1}" loading="lazy">`}
                                 <div class="card-info">
                                     <span class="card-title">Episode ${i+1}</span>
                                     <div class="play-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
