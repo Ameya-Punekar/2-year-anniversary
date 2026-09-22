@@ -7,7 +7,7 @@ window.SERIES_DATA = [
     "year": "Throwback",
     "genre": "Origins • Childhood • Memories",
     "folder": "photos/little-gitl-i-fell-in-love-with",
-    "cover": "WhatsApp Image 2026-09-22 at 16.35.12.jpeg",
+    "cover": "WhatsApp Image 2026-09-22 at 16.35.11.jpeg",
     "media": [
       {
         "type": "image",
@@ -45,7 +45,7 @@ window.SERIES_DATA = [
         "src": "photos/little-gitl-i-fell-in-love-with/WhatsApp Image 2026-09-22 at 16.50.36.jpeg"
       }
     ],
-    "coverSrc": "photos/little-gitl-i-fell-in-love-with/WhatsApp Image 2026-09-22 at 16.35.12.jpeg"
+    "coverSrc": "photos/little-gitl-i-fell-in-love-with/WhatsApp Image 2026-09-22 at 16.35.11.jpeg"
   },
   {
     "id": "pre-dating",
@@ -55,13 +55,8 @@ window.SERIES_DATA = [
     "year": "Before Us",
     "genre": "Drama • Romance • Beginnings",
     "folder": "photos/pre-dating-era",
-    "cover": "WhatsApp Image 2026-09-22 at 16.28.09 (4).jpeg",
+    "cover": "WhatsApp Image 2026-09-22 at 16.28.09 (2).jpeg",
     "media": [
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.28.09 (1).jpeg",
-        "src": "photos/pre-dating-era/WhatsApp Image 2026-09-22 at 16.28.09 (1).jpeg"
-      },
       {
         "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.28.09 (2).jpeg",
@@ -83,17 +78,17 @@ window.SERIES_DATA = [
         "src": "photos/pre-dating-era/WhatsApp Video 2026-09-22 at 16.28.09.mp4"
       }
     ],
-    "coverSrc": "photos/pre-dating-era/WhatsApp Image 2026-09-22 at 16.28.09.jpeg"
+    "coverSrc": "photos/pre-dating-era/WhatsApp Image 2026-09-22 at 16.28.09 (2).jpeg"
   },
   {
     "id": "golden-time",
-    "title": "The Golden Time — Where It All Started",
+    "title": "The Golden Time - Where It All Started",
     "description": "The beautiful beginning of us. The moments that solidified our bond forever.",
     "match": "99%",
     "year": "Year 1",
     "genre": "Romance • Drama • Milestones",
     "folder": "photos/golden-time-where-it-all-started",
-    "cover": "WhatsApp Image 2026-09-22 at 16.29.23.jpeg",
+    "cover": "WhatsApp Image 2026-09-22 at 16.29.20.jpeg",
     "media": [
       {
         "type": "image",
@@ -116,7 +111,7 @@ window.SERIES_DATA = [
         "src": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.23.jpeg"
       }
     ],
-    "coverSrc": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.23.jpeg"
+    "coverSrc": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.20.jpeg"
   },
   {
     "id": "long-distance",
@@ -126,7 +121,7 @@ window.SERIES_DATA = [
     "year": "Year 1-2",
     "genre": "Drama • Romance • Resilience",
     "folder": "photos/11-months-of-long-distance",
-    "cover": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg",
+    "cover": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 20.00.41 (1).jpeg",
     "media": [
       {
         "type": "image",
@@ -147,11 +142,6 @@ window.SERIES_DATA = [
         "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.35.11 (1).jpeg",
         "src": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 16.35.11 (1).jpeg"
-      },
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.35.11 (2).jpeg",
-        "src": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 16.35.11 (2).jpeg"
       },
       {
         "type": "image",
@@ -184,7 +174,7 @@ window.SERIES_DATA = [
         "src": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 20.00.41.jpeg"
       }
     ],
-    "coverSrc": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 16.35.10.jpeg"
+    "coverSrc": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 20.00.41 (1).jpeg"
   },
   {
     "id": "end-long-distance",
@@ -194,12 +184,17 @@ window.SERIES_DATA = [
     "year": "Year 2",
     "genre": "Romance • Reunion • Joy",
     "folder": "photos/end-of-the-long-distance-draught",
-    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31 (4).jpeg",
+    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.37.04.jpeg",
     "media": [
       {
         "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.37.03 (1).jpeg",
         "src": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.03 (1).jpeg"
+      },
+      {
+        "type": "image",
+        "filename": "WhatsApp Image 2026-09-22 at 16.37.04.jpeg",
+        "src": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04.jpeg"
       },
       {
         "type": "image",
@@ -218,7 +213,7 @@ window.SERIES_DATA = [
         "src": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg"
       }
     ],
-    "coverSrc": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.03.jpeg"
+    "coverSrc": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04.jpeg"
   },
   {
     "id": "european-dream",
@@ -228,7 +223,7 @@ window.SERIES_DATA = [
     "year": "Year 2",
     "genre": "Adventure • Romance • Life",
     "folder": "photos/living-the-european-dream",
-    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.33 (4).jpeg",
+    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.35 (1).jpeg",
     "media": [
       {
         "type": "image",
@@ -237,23 +232,8 @@ window.SERIES_DATA = [
       },
       {
         "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.31 (2).jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31 (2).jpeg"
-      },
-      {
-        "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.50.31 (3).jpeg",
         "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31 (3).jpeg"
-      },
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.31 (4).jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31 (4).jpeg"
-      },
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.31.jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31.jpeg"
       },
       {
         "type": "image",
@@ -277,11 +257,6 @@ window.SERIES_DATA = [
       },
       {
         "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.33 (1).jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.33 (1).jpeg"
-      },
-      {
-        "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.50.33 (2).jpeg",
         "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.33 (2).jpeg"
       },
@@ -289,11 +264,6 @@ window.SERIES_DATA = [
         "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.50.33 (3).jpeg",
         "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.33 (3).jpeg"
-      },
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.33 (4).jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.33 (4).jpeg"
       },
       {
         "type": "image",
@@ -376,11 +346,6 @@ window.SERIES_DATA = [
         "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.36 (3).jpeg"
       },
       {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.50.36.jpeg",
-        "src": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.36.jpeg"
-      },
-      {
         "type": "video",
         "filename": "WhatsApp Video 2026-09-22 at 16.50.37.mp4",
         "src": "photos/living-the-european-dream/WhatsApp Video 2026-09-22 at 16.50.37.mp4"
@@ -401,7 +366,7 @@ window.SERIES_DATA = [
         "src": "photos/living-the-european-dream/WhatsApp Video 2026-09-22 at 16.50.48.mp4"
       }
     ],
-    "coverSrc": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.31 (1).jpeg"
+    "coverSrc": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.50.35 (1).jpeg"
   }
 ];
 
