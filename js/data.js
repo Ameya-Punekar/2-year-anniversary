@@ -116,7 +116,7 @@ window.SERIES_DATA = [
     "year": "Year 1-2",
     "genre": "Drama • Romance • Resilience",
     "folder": "photos/11-months-of-long-distance",
-    "cover": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 20.00.41 (1).jpeg",
+    "cover": "photos/11-months-of-long-distance/WhatsApp Image 2026-09-22 at 20.00.41 (1).jpeg",
     "media": [
       {
         "type": "image",
@@ -179,7 +179,7 @@ window.SERIES_DATA = [
     "year": "Year 2",
     "genre": "Romance • Reunion • Joy",
     "folder": "photos/end-of-the-long-distance-draught",
-    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg",
+    "cover": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg",
     "media": [
       {
         "type": "image",
