@@ -978,8 +978,43 @@ button {
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 3rem; }
-  .card { flex: 0 0 calc(33.333% - 5.33px); }
-  .nav-links { display: none; }
-  .modal-desc-container { flex-direction: column; }
+  /* Splash */
+  .splash-logo { font-size: clamp(3rem, 15vw, 8rem); letter-spacing: 2px; }
+  .splash-tagline { font-size: 1rem; letter-spacing: 2px; }
+  .splash-note { font-size: 0.9rem; padding: 0 15px; }
+
+  /* Letter */
+  .letter-container { padding: 20px; width: 90%; margin: 0 auto; }
+  .letter-title { font-size: 1.5rem !important; margin-bottom: 15px !important; }
+  .letter-text { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px !important; }
+  .letter-text + div h2 { font-size: 2rem !important; }
+
+  /* Carousel */
+  .hero-title { font-size: 2.5rem; line-height: 1.1; }
+  .hero-desc { font-size: 0.9rem; max-width: 100%; }
+  .carousel-content { padding-left: 5%; bottom: 15%; width: 90%; }
+  .btn-primary, .btn-floating { font-size: 1rem; padding: 10px 20px; }
+  .carousel-nav { width: 40px; }
+
+  /* Modal */
+  .modal-content { width: 95%; max-height: 90vh; }
+  .modal-hero { height: 200px; }
+  .modal-hero-content { padding: 20px; }
+  .modal-title { font-size: 1.5rem; }
+  .modal-desc-container { flex-direction: column; gap: 15px; }
+  .episode-thumb-container { width: 120px; }
+
+  /* Gallery */
+  .gallery-title-card h1 { font-size: clamp(2rem, 10vw, 4rem); }
+  .gallery-title-card h3 { font-size: 1rem; }
+  .gallery-close { top: 20px; right: 20px; font-size: 1.5rem; }
+  .gallery-nav { width: 15%; }
+  .gallery-nav svg { width: 32px; height: 32px; }
+  .gallery-controls { padding: 15px 20px; flex-direction: column; gap: 10px; }
+  .gallery-counter { font-size: 1rem; }
+
+  /* Credits */
+  .credits-content h2 { font-size: 1rem; margin-top: 30px; }
+  .credits-content h1 { font-size: 2rem; }
+  .credits-content h1.credits-end { font-size: 2.5rem; margin-top: 50px; }
 }
