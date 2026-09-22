@@ -7,6 +7,7 @@ window.SERIES_DATA = [
     year: 'Throwback',
     genre: 'Origins • Childhood • Memories',
     folder: 'photos/little-gitl-i-fell-in-love-with',
+    cover: 'WhatsApp Image 2026-09-22 at 16.35.12.jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.35.11.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.35.12.jpeg' },
@@ -26,6 +27,7 @@ window.SERIES_DATA = [
     year: 'Before Us',
     genre: 'Drama • Romance • Beginnings',
     folder: 'photos/pre-dating-era',
+    cover: 'WhatsApp Image 2026-09-22 at 16.28.09.jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.28.09.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.28.09 (1).jpeg' },
@@ -43,6 +45,7 @@ window.SERIES_DATA = [
     year: 'Year 1',
     genre: 'Romance • Drama • Milestones',
     folder: 'photos/golden-time-where-it-all-started',
+    cover: 'WhatsApp Image 2026-09-22 at 16.29.23.jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.29.20.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.29.20 (1).jpeg' },
@@ -58,6 +61,7 @@ window.SERIES_DATA = [
     year: 'Year 1-2',
     genre: 'Drama • Romance • Resilience',
     folder: 'photos/11-months-of-long-distance',
+    cover: 'WhatsApp Image 2026-09-22 at 16.35.10.jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.35.08.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.35.10.jpeg' },
@@ -81,6 +85,7 @@ window.SERIES_DATA = [
     year: 'Year 2',
     genre: 'Romance • Reunion • Joy',
     folder: 'photos/end-of-the-long-distance-draught',
+    cover: 'WhatsApp Image 2026-09-22 at 16.37.03.jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.37.03.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.37.03 (1).jpeg' },
@@ -97,6 +102,7 @@ window.SERIES_DATA = [
     year: 'Year 2',
     genre: 'Adventure • Romance • Life',
     folder: 'photos/living-the-european-dream',
+    cover: 'WhatsApp Image 2026-09-22 at 16.50.31 (1).jpeg',
     media: [
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.50.31.jpeg' },
       { type: 'image', filename: 'WhatsApp Image 2026-09-22 at 16.50.31 (1).jpeg' },
@@ -142,6 +148,9 @@ window.SERIES_DATA = [
 ];
 
 window.SERIES_DATA.forEach(series => {
+  if (series.cover) {
+    series.coverSrc = series.folder + '/' + series.cover;
+  }
   series.media.forEach(m => {
     m.src = series.folder + '/' + m.filename;
   });
