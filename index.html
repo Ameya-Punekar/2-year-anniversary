@@ -124,7 +124,7 @@
   <!-- Gallery Player -->
   <div id="gallery-overlay" class="gallery-overlay">
     <div id="gallery-bg-blur" class="gallery-bg-blur"></div>
-    <video id="gallery-bg-vid" class="gallery-bg-blur" muted loop style="display:none;"></video>
+    <video id="gallery-bg-vid" class="gallery-bg-blur" playsinline webkit-playsinline muted loop style="display:none;"></video>
     <div class="gallery-close" id="gallery-close">&times;</div>
     
     <button class="gallery-nav prev" id="gallery-prev">
@@ -137,7 +137,7 @@
         <h1 id="gallery-chapter-title"></h1>
       </div>
       <img id="gallery-img" src="" alt="">
-      <video id="gallery-vid" controls></video>
+      <video id="gallery-vid" playsinline webkit-playsinline muted></video>
     </div>
 
     <button class="gallery-nav next" id="gallery-next">
