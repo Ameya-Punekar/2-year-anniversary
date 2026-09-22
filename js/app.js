@@ -205,11 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryVid.classList.remove('active');
         const titleCard = document.getElementById('gallery-title-card');
         if (titleCard) titleCard.classList.remove('active');
+        
+        const bgBlur = document.getElementById('gallery-bg-blur');
 
         if (m.type === 'chapter') {
             galleryImg.style.display = 'none';
             galleryVid.style.display = 'none';
             galleryVid.pause();
+            if (bgBlur) bgBlur.classList.remove('active');
             
             document.getElementById('gallery-chapter-number').textContent = m.chapterNumber;
             document.getElementById('gallery-chapter-title').textContent = m.title;
@@ -220,11 +223,18 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryVid.src = m.src;
             galleryVid.play().catch(e => console.warn(e));
             galleryVid.classList.add('active');
+            if (bgBlur) bgBlur.classList.remove('active');
         } else {
             galleryVid.pause();
             galleryVid.style.display = 'none';
             galleryImg.style.display = 'block';
             galleryImg.src = m.src;
+            
+            if (bgBlur) {
+                bgBlur.style.backgroundImage = `url('${m.src}')`;
+                bgBlur.classList.add('active');
+            }
+
             // Force reflow to restart animation
             void galleryImg.offsetWidth;
             galleryImg.classList.add('active');
