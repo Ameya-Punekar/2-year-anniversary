@@ -11,30 +11,28 @@
   <!-- Splash Screen -->
   <div id="splash-screen">
     <div class="splash-logo-container">
-      <h1 class="splash-logo">OUR STORY</h1>
-      <p class="splash-tagline">2 Years</p>
+      <h1 class="splash-logo">AMU & ANGEL</h1>
+      <p class="splash-tagline">TWO HEAVENLY YEARS</p>
     </div>
     <div class="splash-note" id="opening-note">
-      PLACEHOLDER_OPENING_NOTE
+      Lockin my love lets rewind 2 beautiful heavenly years
     </div>
     <button id="btn-enter" class="btn-enter">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      Start Watching
+      Open Letter
     </button>
   </div>
 
-  <!-- Profile Screen -->
+  <!-- Profile Screen (Now Letter Screen) -->
   <div id="profile-screen" style="display: none;">
-    <h1 class="profile-title">Who's watching?</h1>
-    <div class="profiles-container">
-      <div class="profile-card">
-        <div class="profile-avatar avatar-1">❤️</div>
-        <span class="profile-name">Ameya</span>
-      </div>
-      <div class="profile-card">
-        <div class="profile-avatar avatar-2">✨</div>
-        <span class="profile-name">You</span>
-      </div>
+    <div class="letter-container">
+      <h1 class="letter-title">To my beautiful Angel,</h1>
+      <p class="letter-text">
+        My love you are my angel, a true blessing of GOD, I would say god has been kind to be sending you as my partner. All the things you do for me, for us are truly amazing. You make me feel special, loved, I can be a babyboy around you. You are my safe space, my heart feels at peace with you my babygirl. I have put you through a lot last year, nothing can compensate, no amount of change, sorry, apologies, it takes a heart of gold to be good to a person who has put you through so much. My baby girl I am so grateful for you. Life has not been kind to you lately my love, I pray to the god to make it better for you and I will try my best to keep you happy, healthy through entire life, your love Amu ❤️
+      </p>
+      <button id="btn-start-movie" class="btn-primary mt-4">
+        Start The Journey
+      </button>
     </div>
   </div>
 
@@ -111,6 +109,7 @@
   <!-- Gallery Player -->
   <div id="gallery-overlay" class="gallery-overlay">
     <div id="gallery-bg-blur" class="gallery-bg-blur"></div>
+    <video id="gallery-bg-vid" class="gallery-bg-blur" muted loop style="display:none;"></video>
     <div class="gallery-close" id="gallery-close">&times;</div>
     
     <button class="gallery-nav prev" id="gallery-prev">
@@ -140,25 +139,25 @@
 
   <!-- Credits Screen -->
   <div id="credits-screen" class="credits-overlay hidden">
-    <div class="credits-content" id="credits-content">
+    <div id="credits-content" class="credits-content">
       <h2>Directed By</h2>
-      <h1>Ameya</h1>
+      <h1>GOD</h1>
       
       <h2>Starring</h2>
-      <h1>Ameya & You</h1>
+      <h1>AMEYA & ANGEL</h1>
       
-      <h2>Cinematography</h2>
-      <h1>WhatsApp Camera</h1>
+      <h2>A True Story</h2>
+      <h1>OF LOVE & RESILIENCE</h1>
       
-      <h2>Soundtrack</h2>
-      <h1>The Rhythm of Our Hearts</h1>
+      <h2>Music</h2>
+      <h1>Darmiyaan (Musafir Cafe)</h1>
       
-      <h2>Special Thanks</h2>
-      <h1>To every moment we shared</h1>
+      <h2>Special Thanks To</h2>
+      <h1>Every beautiful memory we created</h1>
       
-      <h1 class="credits-end">2 Years of Us.</h1>
-      <h2>And many more to come.</h2>
+      <h1 class="credits-end">2 DOWN, FOREVER TO GO ❤️</h1>
     </div>
+    <audio id="credits-audio" src="darmiyaan.mp3"></audio>
   </div>
 
   <script src="js/data.js"></script>

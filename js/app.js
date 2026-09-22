@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     });
 
-    const profiles = document.querySelectorAll('.profile-card');
-    profiles.forEach(p => {
-        p.addEventListener('click', () => {
+    const btnStartMovie = document.getElementById('btn-start-movie');
+    if (btnStartMovie) {
+        btnStartMovie.addEventListener('click', () => {
             profileScreen.classList.add('hidden');
             setTimeout(() => {
                 profileScreen.style.display = 'none';
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('no-scroll');
             }, 1000);
         });
-    });
+    }
 
 
 
@@ -207,12 +207,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (titleCard) titleCard.classList.remove('active');
         
         const bgBlur = document.getElementById('gallery-bg-blur');
+        const bgVid = document.getElementById('gallery-bg-vid');
+        
+        // Handle rotation for pic 33
+        if (m.rotated) {
+            galleryImg.classList.add('rotate-left');
+        } else {
+            galleryImg.classList.remove('rotate-left');
+        }
 
         if (m.type === 'chapter') {
             galleryImg.style.display = 'none';
             galleryVid.style.display = 'none';
             galleryVid.pause();
             if (bgBlur) bgBlur.classList.remove('active');
+            if (bgVid) { bgVid.pause(); bgVid.style.display = 'none'; }
             
             document.getElementById('gallery-chapter-number').textContent = m.chapterNumber;
             document.getElementById('gallery-chapter-title').textContent = m.title;
@@ -223,10 +232,19 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryVid.src = m.src;
             galleryVid.play().catch(e => console.warn(e));
             galleryVid.classList.add('active');
+            
             if (bgBlur) bgBlur.classList.remove('active');
+            if (bgVid) {
+                bgVid.src = m.src;
+                bgVid.style.display = 'block';
+                bgVid.play().catch(e => console.warn(e));
+                bgVid.classList.add('active');
+            }
         } else {
             galleryVid.pause();
             galleryVid.style.display = 'none';
+            if (bgVid) { bgVid.pause(); bgVid.style.display = 'none'; }
+            
             galleryImg.style.display = 'block';
             galleryImg.src = m.src;
             
@@ -248,6 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
         closeGallery();
         creditsScreen.classList.remove('hidden');
         
+        const audio = document.getElementById('credits-audio');
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play().catch(e => console.warn('Audio play prevented by browser:', e));
+        }
+        
         // Restart animation
         creditsContent.style.animation = 'none';
         creditsContent.offsetHeight; /* trigger reflow */
@@ -255,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             creditsScreen.classList.add('hidden');
+            if (audio) audio.pause();
         }, 22000); // Wait for 20s animation + 2s fade
     }
 
