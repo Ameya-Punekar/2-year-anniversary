@@ -824,6 +824,64 @@ button {
   to { opacity: 1; }
 }
 
+/* -------------------------------------
+   7. CREDITS SCREEN
+------------------------------------- */
+.credits-overlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s, visibility 1s;
+}
+
+.credits-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.credits-content {
+  text-align: center;
+  color: white;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  animation: scrollCredits 20s linear forwards;
+}
+
+.credits-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #a3a3a3;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.credits-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.credits-content h1.credits-end {
+  margin-top: 100px;
+  color: var(--netflix-red);
+}
+
+@keyframes scrollCredits {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-250%); }
+}
+
 @media (max-width: 768px) {
   .hero-title { font-size: 3rem; }
   .card { flex: 0 0 calc(33.333% - 5.33px); }

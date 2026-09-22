@@ -151,6 +151,10 @@ window.SERIES_DATA.forEach(series => {
   if (series.cover) {
     series.coverSrc = series.folder + '/' + series.cover;
   }
+  
+  // Sort naturally (e.g. WhatsApp Image 2026-09-22 at 16.35.12 (1) after 16.35.12)
+  series.media.sort((a, b) => a.filename.localeCompare(b.filename, undefined, {numeric: true, sensitivity: 'base'}));
+
   series.media.forEach(m => {
     m.src = series.folder + '/' + m.filename;
   });

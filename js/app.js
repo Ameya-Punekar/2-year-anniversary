@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroYear = document.getElementById('hero-year');
     const heroSeasons = document.getElementById('hero-seasons');
     const heroPlayBtn = document.getElementById('hero-play');
+    const heroPlayMovieBtn = document.getElementById('hero-play-movie');
     const heroInfoBtn = document.getElementById('hero-info');
 
     // Rows
@@ -44,13 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryCounter = document.getElementById('gallery-counter');
     const galleryProgress = document.getElementById('gallery-progress');
 
+    // Credits
+    const creditsScreen = document.getElementById('credits-screen');
+    const creditsContent = document.getElementById('credits-content');
+
     // State
     let activeSeries = null;
     let galleryIndex = 0;
     let autoPlayInterval = null;
+    let globalTimeline = [];
+    let isGlobalMovie = false;
 
     // Initialize
     function init() {
+        seriesData.forEach(series => {
+            series.media.forEach(m => {
+                globalTimeline.push(m);
+            });
+        });
+        
         setHeroSeries(seriesData[seriesData.length - 1]); // Default hero to latest
         renderRows();
         attachEvents();
@@ -83,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSeasons.textContent = `${series.media.length} Episodes`;
 
         heroPlayBtn.onclick = () => openGallery(series, 0);
+        heroPlayMovieBtn.onclick = () => openGlobalMovie();
         heroInfoBtn.onclick = () => openModal(series);
     }
 
@@ -178,7 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Gallery ---
+    function openGlobalMovie() {
+        isGlobalMovie = true;
+        galleryIndex = 0;
+        galleryOverlay.classList.add('active');
+        document.body.classList.add('no-scroll');
+        renderGalleryMedia();
+        startAutoPlay();
+    }
+
     function openGallery(series, idx) {
+        isGlobalMovie = false;
         activeSeries = series;
         galleryIndex = idx;
         galleryOverlay.classList.add('active');
@@ -188,7 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderGalleryMedia() {
-        const m = activeSeries.media[galleryIndex];
+        const m = isGlobalMovie ? globalTimeline[galleryIndex] : activeSeries.media[galleryIndex];
+        const currentLength = isGlobalMovie ? globalTimeline.length : activeSeries.media.length;
+        
         galleryImg.classList.remove('active');
         galleryVid.classList.remove('active');
 
@@ -206,18 +232,45 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryImg.classList.add('active');
         }
 
-        galleryCounter.textContent = `${galleryIndex + 1} / ${activeSeries.media.length}`;
-        galleryProgress.style.width = `${((galleryIndex + 1) / activeSeries.media.length) * 100}%`;
+        galleryCounter.textContent = `${galleryIndex + 1} / ${currentLength}`;
+        galleryProgress.style.width = `${((galleryIndex + 1) / currentLength) * 100}%`;
+    }
+
+    function showCredits() {
+        closeGallery();
+        creditsScreen.classList.remove('hidden');
+        
+        // Restart animation
+        creditsContent.style.animation = 'none';
+        creditsContent.offsetHeight; /* trigger reflow */
+        creditsContent.style.animation = null; 
+        
+        setTimeout(() => {
+            creditsScreen.classList.add('hidden');
+        }, 22000); // Wait for 20s animation + 2s fade
     }
 
     function nextMedia() {
-        galleryIndex = (galleryIndex + 1) % activeSeries.media.length;
+        const mediaList = isGlobalMovie ? globalTimeline : activeSeries.media;
+        galleryIndex++;
+        if (galleryIndex >= mediaList.length) {
+            if (isGlobalMovie) {
+                showCredits();
+                return;
+            } else {
+                galleryIndex = 0; // Loop series
+            }
+        }
         renderGalleryMedia();
         startAutoPlay();
     }
 
     function prevMedia() {
-        galleryIndex = (galleryIndex - 1 + activeSeries.media.length) % activeSeries.media.length;
+        const mediaList = isGlobalMovie ? globalTimeline : activeSeries.media;
+        galleryIndex--;
+        if (galleryIndex < 0) {
+            galleryIndex = mediaList.length - 1;
+        }
         renderGalleryMedia();
         startAutoPlay();
     }
@@ -235,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startAutoPlay() {
         stopAutoPlay();
         autoPlayInterval = setInterval(() => {
-            const m = activeSeries.media[galleryIndex];
+            const m = isGlobalMovie ? globalTimeline[galleryIndex] : activeSeries.media[galleryIndex];
             if (m.type === 'video' && !galleryVid.paused) {
                 // Wait for video to end via event
             } else {
