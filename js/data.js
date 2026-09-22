@@ -55,7 +55,7 @@ window.SERIES_DATA = [
     "year": "Before Us",
     "genre": "Drama • Romance • Beginnings",
     "folder": "photos/pre-dating-era",
-    "cover": "WhatsApp Image 2026-09-22 at 16.28.09 (2).jpeg",
+    "cover": "WhatsApp Image 2026-09-22 at 16.28.09 (4) - Copy.jpeg",
     "media": [
       {
         "type": "image",
@@ -78,7 +78,7 @@ window.SERIES_DATA = [
         "src": "photos/pre-dating-era/WhatsApp Video 2026-09-22 at 16.28.09.mp4"
       }
     ],
-    "coverSrc": "photos/pre-dating-era/WhatsApp Image 2026-09-22 at 16.28.09 (2).jpeg"
+    "coverSrc": "photos/pre-dating-era/WhatsApp Image 2026-09-22 at 16.28.09 (4) - Copy.jpeg"
   },
   {
     "id": "golden-time",
@@ -88,13 +88,8 @@ window.SERIES_DATA = [
     "year": "Year 1",
     "genre": "Romance • Drama • Milestones",
     "folder": "photos/golden-time-where-it-all-started",
-    "cover": "WhatsApp Image 2026-09-22 at 16.29.20.jpeg",
+    "cover": "WhatsApp Image 2026-09-22 at 16.29.20 (1).jpeg",
     "media": [
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.29.20 (1).jpeg",
-        "src": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.20 (1).jpeg"
-      },
       {
         "type": "image",
         "filename": "WhatsApp Image 2026-09-22 at 16.29.20.jpeg",
@@ -111,7 +106,7 @@ window.SERIES_DATA = [
         "src": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.23.jpeg"
       }
     ],
-    "coverSrc": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.20.jpeg"
+    "coverSrc": "photos/golden-time-where-it-all-started/WhatsApp Image 2026-09-22 at 16.29.20 (1).jpeg"
   },
   {
     "id": "long-distance",
@@ -184,7 +179,7 @@ window.SERIES_DATA = [
     "year": "Year 2",
     "genre": "Romance • Reunion • Joy",
     "folder": "photos/end-of-the-long-distance-draught",
-    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.37.04.jpeg",
+    "cover": "photos/living-the-european-dream/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg",
     "media": [
       {
         "type": "image",
@@ -206,14 +201,9 @@ window.SERIES_DATA = [
         "filename": "WhatsApp Image 2026-09-22 at 16.37.03.jpeg",
         "src": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.03.jpeg",
         "rotated": true
-      },
-      {
-        "type": "image",
-        "filename": "WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg",
-        "src": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg"
       }
     ],
-    "coverSrc": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04.jpeg"
+    "coverSrc": "photos/end-of-the-long-distance-draught/WhatsApp Image 2026-09-22 at 16.37.04 (1).jpeg"
   },
   {
     "id": "european-dream",
