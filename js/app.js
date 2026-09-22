@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const splashScreen = document.getElementById('splash-screen');
     const profileScreen = document.getElementById('profile-screen');
     const btnEnter = document.getElementById('btn-enter');
-    const browsePage = document.getElementById('browse-page');
-    const navbar = document.getElementById('navbar');
 
     // Carousel Elements
     const carouselPage = document.getElementById('carousel-page');
@@ -100,11 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Navbar ---
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) navbar.classList.add('scrolled');
-        else navbar.classList.remove('scrolled');
-    });
+
 
     // --- Carousel Logic ---
     function updateCarousel() {
